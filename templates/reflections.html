@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Reflections — Group 9{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <a href="{{ url_for('dashboard.index') }}" class="btn btn-secondary">← Back to Dashboard</a>
+    <h1>What We Learned</h1>
+    <p>Reflections and realizations from each member of Group 9.</p>
+</div>
+
+{% for member in members %}
+<div class="card">
+    <h2>{{ loop.index }}. {{ member.name }}</h2>
+    <p class="member-role">Task: {{ member.role }}</p>
+
+    <h3>📚 What I Learned:</h3>
+    <ul class="reflection-list">
+        {% for item in member.learned %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>💡 My Realization:</h3>
+    <p class="realization-text">{{ member.realization }}</p>
+</div>
+{% endfor %}
+
+{% endblock %}

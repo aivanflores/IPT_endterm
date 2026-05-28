@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Login — Group 9{% endblock %}
+
+{% block content %}
+<div class="login-wrapper">
+    <div class="login-box">
+
+        <div class="login-icon">📊</div>
+        <h1>Group 9 Dashboard</h1>
+        <p class="login-sub">AI Student Impact Dataset</p>
+        <p class="login-sub">BSIT — Data Analytics</p>
+
+        <form method="POST" action="{{ url_for('auth.login') }}">
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username"
+                       placeholder="Enter username" required autofocus>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password"
+                       placeholder="Enter password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">Login</button>
+
+        </form>
+
+        <p class="login-hint">Default credentials: <strong>admin</strong> / <strong>admin123</strong></p>
+
+    </div>
+</div>
+{% endblock %}

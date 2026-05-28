@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard — Group 9{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>AI Student Impact Dashboard</h1>
+    <p>Welcome, <strong>{{ session.user }}</strong>! Showing analysis of {{ summary.total_rows | default(0) | int }} student records.</p>
+</div>
+
+<!-- Error message if CSV is missing -->
+{% if error %}
+<div class="alert alert-error">
+    ⚠️ {{ error }}
+</div>
+{% endif %}
+
+<!-- Member Task Table -->
+<div class="card">
+    <h2>Group 9 : Member Task Assignment</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Assigned Task</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Flores, Aivan</td><td>AI Student Impact Dataset Analysis + Dashboard Route</td></tr>
+            <tr><td>David, Lealyn Rubias</td><td>Login Page (auth.py + login.html)</td></tr>
+            <tr><td>Bilog, Kathleen Shane Caburobias</td><td>Base Analyzer Class (OOP - base_analyzer.py)</td></tr>
+            <tr><td>Petrola, Jefferson</td><td>HTML Templates and Navigation</td></tr>
+            <tr><td>Revilla, Ladesma Archilyn Bangcaya</td><td>Account Management Page</td></tr>
+        </tbody>
+    </table>
+</div>
+
+{% if extra_stats %}
+<!-- Quick Stats Cards -->
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-number">{{ summary.total_rows }}</div>
+        <div class="stat-label">Total Students</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ extra_stats.avg_genai_hours }} hrs</div>
+        <div class="stat-label">Avg Weekly GenAI Hours</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ extra_stats.avg_post_gpa }}</div>
+        <div class="stat-label">Avg Post-Semester GPA</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ extra_stats.avg_skill_retention }}%</div>
+        <div class="stat-label">Avg Skill Retention Score</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ extra_stats.high_burnout_pct }}%</div>
+        <div class="stat-label">High Burnout Risk</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ summary.total_columns }}</div>
+        <div class="stat-label">Dataset Columns</div>
+    </div>
+</div>
+{% endif %}
+
+<!-- Charts Section -->
+{% if charts %}
+<div class="card">
+    <h2>Data Visualizations</h2>
+    <p style="color:#666; margin-bottom:20px;">All charts are generated from the cleaned dataset using Matplotlib and Pandas.</p>
+
+    <div class="chart-grid">
+        {% set chart_titles = [
+            'Students per Major Category',
+            'Burnout Risk Level',
+            'Avg GenAI Hours by Year',
+            'Pre vs Post Semester GPA',
+            'Primary AI Use Case',
+            'Prompt Engineering Skill Level'
+        ] %}
+
+        {% for chart in charts %}
+        <div class="chart-box">
+            {% if loop.index0 < chart_titles | length %}
+            <h3 class="chart-title">{{ chart_titles[loop.index0] }}</h3>
+            {% endif %}
+            <img src="{{ url_for('static', filename='charts/' + chart) }}"
+                 alt="{{ chart }}"
+                 class="chart-img fade-in">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- Dataset Column Info -->
+{% if summary.columns %}
+<div class="card">
+    <h2>Dataset Columns ({{ summary.total_columns }})</h2>
+    <div class="column-list">
+        {% for col in summary.columns %}
+        <span class="column-tag">{{ col }}</span>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
