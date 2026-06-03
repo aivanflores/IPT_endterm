@@ -7,16 +7,19 @@ reflections_bp = Blueprint('reflections', __name__)
 MEMBERS = [
     {
         'name': 'Flores, Aivan',
-        'role': 'AI Student Impact Dataset Analysis + Dashboard Route',
+        'role': 'App Setup + Dashboard Route + Flask login protection',
         'learned': [
-            'I learned how to use Pandas to load and explore a real dataset with 50,000 rows.',
-            'I applied OOP by creating the AIImpactAnalyzer class that inherits from BaseAnalyzer.',
-            'I learned how to generate multiple Matplotlib charts and serve them through Flask.',
+            'Effective time management in coding is a skill in itself. Something as simple as writing reusable code instead of repeating the same lines over and over can save you a significant amount of time, and that lesson extends far beyond just programming.',
+            'Do not be afraid to try your own approach when solving a problem. Even if it takes longer, the process of figuring things out on your own builds a deeper understanding that no shortcut can give you.',
+            'Honesty will always be the better choice in an academic setting. Regardless of the score, knowing that you gave your honest best effort is something no grade can take away from you.',
         ],
         'realization': (
-            'I realized that working with a large dataset like this one requires careful planning '
-            'before writing a single line of code. Understanding the columns first — what each one '
-            'means — made it much easier to decide which charts would actually tell a useful story.'
+            'We are all human, we make mistakes, and we are each gifted in different ways. '
+            'Some people are naturally strong at coding, while others shine in design, communication, or other areas. '
+            'If you ever find yourself in a room where you feel out of place or not at your best, '
+            'perhaps it is not a reflection of your worth, it simply means you have not yet found '
+            'the right space where your true strengths can be seen. '
+            'Everyone has something remarkable to offer; it is just a matter of finding where that something belongs.'
         ),
     },
     {
