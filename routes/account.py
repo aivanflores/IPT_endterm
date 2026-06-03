@@ -1,15 +1,39 @@
+import json
+import os
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
 from functools import wraps
 
 account_bp = Blueprint('account', __name__)
 
-# Admin info stored in a dictionary (simple, no database needed)
-admin_info = {
-    'username': 'admin',
-    'password': 'admin123',
-    'full_name': 'Administrator',
-    'email': 'admin@group9.com'
-}
+# Path to the JSON file that stores admin info
+ADMIN_FILE = os.path.join(os.path.dirname(__file__), '..', 'admin.json')
+
+
+def load_admin():
+    try:
+        with open(ADMIN_FILE, 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        # If file doesn't exist yet, return the default admin account
+        return {
+            'username': 'admin',
+            'password': 'admin123',
+            'full_name': 'Administrator',
+            'email': 'admin@group9.com'
+        }
+    except Exception as e:
+        print(f"[ERROR] Could not read admin.json: {e}")
+        return {}
+
+
+def save_admin(data):
+    try:
+        with open(ADMIN_FILE, 'w') as f:
+            json.dump(data, f, indent=4)
+        return True
+    except Exception as e:
+        print(f"[ERROR] Could not save admin.json: {e}")
+        return False
 
 
 def login_required(func):
@@ -28,9 +52,11 @@ def account():
     """
     Account management page.
     Admin can update their name, email, and password.
+    Changes are saved to admin.json so they persist after restart.
     Assigned to: Revilla, Ladesma Archilyn Bangcaya
     """
-    global admin_info
+    # Always load fresh from file
+    admin_info = load_admin()
 
     if request.method == 'POST':
         action = request.form.get('action')
@@ -44,7 +70,11 @@ def account():
             else:
                 admin_info['full_name'] = new_name
                 admin_info['email']     = new_email
-                flash('Profile updated!', 'success')
+
+                if save_admin(admin_info):
+                    flash('Profile updated!', 'success')
+                else:
+                    flash('Could not save changes. Try again.', 'error')
 
         elif action == 'change_password':
             current = request.form.get('current_password', '').strip()
@@ -59,6 +89,13 @@ def account():
                 flash('New passwords do not match.', 'error')
             else:
                 admin_info['password'] = new_pw
-                flash('Password changed successfully!', 'success')
+
+                if save_admin(admin_info):
+                    flash('Password changed successfully!', 'success')
+                else:
+                    flash('Could not save new password. Try again.', 'error')
+
+        # Reload from file after saving so display is always fresh
+        admin_info = load_admin()
 
     return render_template('account.html', admin=admin_info)

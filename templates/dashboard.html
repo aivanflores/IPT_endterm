@@ -1,21 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Dashboard — Group 9{% endblock %}
-
-{% block content %}
-
-<div class="page-header">
-    <h1>AI Student Impact Dashboard</h1>
-    <p>Welcome, <strong>{{ session.user }}</strong>! Showing analysis of {{ summary.total_rows | default(0) | int }} student records.</p>
-</div>
-
-<!-- Error message if CSV is missing -->
-{% if error %}
-<div class="alert alert-error">
-    ⚠️ {{ error }}
-</div>
-{% endif %}
-
-<!-- Member Task Table -->
+{% block title %}Dashboard — Group 9<!-- Member Task Table -->
 <div class="card">
     <h2>📋 Group 9 — Member Task Assignment</h2>
     <table class="table">
@@ -55,6 +39,22 @@
         </tbody>
     </table>
 </div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>AI Student Impact Dashboard</h1>
+    <p>Welcome, <strong>{{ session.user }}</strong>! Showing analysis of {{ summary.total_rows | default(0) | int }} student records.</p>
+</div>
+
+<!-- Error message if CSV is missing -->
+{% if error %}
+<div class="alert alert-error">
+    ⚠️ {{ error }}
+</div>
+{% endif %}
 
 {% if extra_stats %}
 <!-- Quick Stats Cards -->
@@ -107,7 +107,7 @@
             {% if loop.index0 < chart_titles | length %}
             <h3 class="chart-title">{{ chart_titles[loop.index0] }}</h3>
             {% endif %}
-            <img src="{{ url_for('static', filename='charts/' + chart) }}"
+            <img src="{{ url_for('static', filename='charts/' + chart) }}?v={{ cache_bust }}"
                  alt="{{ chart }}"
                  class="chart-img fade-in">
         </div>
@@ -127,5 +127,46 @@
     </div>
 </div>
 {% endif %}
+
+<!-- Member Task Table -->
+<div class="card">
+    <h2>📋 Group 9 — Member Task Assignment</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Assigned Task</th>
+                <th>Files</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Flores, Aivan</td>
+                <td>App Setup + Dashboard Route + Flask login protection</td>
+                <td><code>app.py</code>, <code>config.py</code>, <code>routes/dashboard.py</code>, <code>templates/dashboard.html</code></td>
+            </tr>
+            <tr>
+                <td>David, Lealyn Rubias</td>
+                <td>Login &amp; Logout (Flask + session) + Data Cleaning (Pandas)</td>
+                <td><code>routes/auth.py</code>, <code>templates/login.html</code>, <code>models/base_analyzer.py</code> — <em>load_data(), clean_data()</em></td>
+            </tr>
+            <tr>
+                <td>Bilog, Kathleen Shane Caburobias</td>
+                <td>OOP Parent Class Structure + get_summary() + save_chart()</td>
+                <td><code>models/base_analyzer.py</code> — <em>__init__, get_summary(), save_chart()</em></td>
+            </tr>
+            <tr>
+                <td>Petrola, Jefferson</td>
+                <td>AI Impact Analyzer (OOP Inheritance) + 6 Matplotlib Charts</td>
+                <td><code>models/ai_impact_analyzer.py</code>, <code>models/__init__.py</code></td>
+            </tr>
+            <tr>
+                <td>Revilla, Ladesma Archilyn Bangcaya</td>
+                <td>Account Management + Reflections + HTML Layout + CSS</td>
+                <td><code>routes/account.py</code>, <code>routes/reflections.py</code>, <code>templates/account.html</code>, <code>templates/reflections.html</code>, <code>templates/base.html</code>, <code>static/css/style.css</code></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 {% endblock %}
