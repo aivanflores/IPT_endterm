@@ -71,7 +71,7 @@ MEMBERS = [
         ),
     },
     {
-        'name': 'Revilla, Ladesma Archilyn Bangcaya',
+        'name': 'Ladesma, Archilyn Bangcaya',
         'role': 'Account Management Page',
         'learned': [
             '',
