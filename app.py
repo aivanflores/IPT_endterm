@@ -30,9 +30,4 @@ def create_app():
 
 if __name__ == '__main__':
     app = create_app()
-    print("=" * 45)
-    print("  Group 9 Dashboard is running!")
-    print("  Open: http://127.0.0.1:5000")
-    print("  Login: admin / admin123")
-    print("=" * 45)
     app.run(debug=True)

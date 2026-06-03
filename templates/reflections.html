@@ -13,14 +13,14 @@
     <h2>{{ loop.index }}. {{ member.name }}</h2>
     <p class="member-role">Task: {{ member.role }}</p>
 
-    <h3>📚 What I Learned:</h3>
+    <h3>What I Learned:</h3>
     <ul class="reflection-list">
         {% for item in member.learned %}
         <li>{{ item }}</li>
         {% endfor %}
     </ul>
 
-    <h3>💡 My Realization:</h3>
+    <h3>My Realization:</h3>
     <p class="realization-text">{{ member.realization }}</p>
 </div>
 {% endfor %}

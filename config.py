@@ -1,7 +1,7 @@
 import os
 
 class Config:
-    SECRET_KEY = 'group9-secret-key-2024'
+    SECRET_KEY = 'group9-secret-key-2026'
 
     # Path to the data folder (where your CSV lives)
     DATA_FOLDER = os.path.join(os.path.dirname(__file__), 'data')

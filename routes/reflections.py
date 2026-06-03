@@ -9,8 +9,8 @@ MEMBERS = [
         'name': 'Flores, Aivan',
         'role': 'App Setup + Dashboard Route + Flask login protection',
         'learned': [
-            'Effective time management in coding is a skill in itself. Something as simple as writing reusable code instead of repeating the same lines over and over can save you a significant amount of time, and that lesson extends far beyond just programming.',
-            'Do not be afraid to try your own approach when solving a problem. Even if it takes longer, the process of figuring things out on your own builds a deeper understanding that no shortcut can give you.',
+            'Effective time management in coding is a skill in itself.',
+            'Do not be afraid to try your own approach when solving a problem.',
             'Honesty will always be the better choice in an academic setting. Regardless of the score, knowing that you gave your honest best effort is something no grade can take away from you.',
         ],
         'realization': (
@@ -26,56 +26,62 @@ MEMBERS = [
         'name': 'David, Lealyn Rubias',
         'role': 'Login Page',
         'learned': [
-            'I learned how Flask sessions work to keep a user logged in across different pages.',
-            'I learned how to handle HTML form submissions using request.form in Flask.',
-            'I learned how to display flash messages to give feedback to the user.',
+            'I learned how to use Python for data analytics by applying data cleaning, filtering, and transformation techniques.',
+            'I discovered how to use libraries such as Pandas and NumPy for data manipulation and analysis.',
+            'I gained experience working with control structures and functions to process and manage data efficiently.',
+            'I learned how to handle datasets, including identifying and managing missing values to improve data quality.',
+            'I developed skills in creating charts and graphs using Matplotlib to visualize and present data effectively.',
+            'I became familiar with the basics of Object-Oriented Programming and how it helps organize programs into reusable components.',
         ],
         'realization': (
-            'I realized that even a simple login page involves a lot of small details — '
-            'checking for empty fields, showing the right error message, and redirecting '
-            'the user properly. Good user experience starts at the login screen.'
+            'I realized that data analytics is not just about making charts and dashboards. '
+            'It is also about preparing and processing data. During the course some topics were tough for me, '
+            'like Object-Oriented Programming. And there were times when I needed extra practice to understand it. '
+            'Despite this, I learned that programming is a skill that improves through patience, trial and error, '
+            'and continuous learning. This subject helped me appreciate how data can be transformed into meaningful '
+            'information and how technology can be used to support better decision-making.'
         ),
     },
     {
         'name': 'Bilog, Kathleen Shane Caburobias',
         'role': 'Base Analyzer Class (OOP)',
         'learned': [
-            'I learned how to write a parent class in Python using OOP principles.',
-            'I learned what inheritance means — child classes can reuse methods from the parent.',
-            'I learned how method overriding works when a child class replaces a parent method.',
+            'I learned how to use Pandas to clean and organize data, including handling missing values before analysis.',
+            'I learned how OOP helps make programs more organized, reusable, and easier to maintain.',
+            'I learned how to create charts and visualizations using Matplotlib to make data easier to understand and interpret.',
         ],
         'realization': (
-            'I realized that OOP makes code much easier to manage when a project grows bigger. '
-            'Instead of copying and pasting the same cleaning code everywhere, we write it once '
-            'in BaseAnalyzer and every other class just inherits it automatically.'
+            'I realized that data analysis is not just about writing code. '
+            'It also involves preparing data properly and presenting it clearly '
+            'to generate meaningful insights.'
         ),
     },
     {
         'name': 'Petrola, Jefferson',
         'role': 'HTML Templates and Navigation',
         'learned': [
-            'I learned how Jinja2 templating works — passing data from Python to HTML.',
-            'I learned how to use template inheritance in Flask with base.html.',
-            'I learned how to loop through data and display it in HTML using Jinja2 for loops.',
+            '',
+            '',
+            '',
         ],
         'realization': (
-            'I realized that the frontend and backend are closely connected in Flask. '
-            'When the Python route sends data to the template, the HTML just displays it — '
-            'which means clean Python code leads to a cleaner and easier-to-manage webpage.'
+            ''
+            ''
+            ''
         ),
     },
     {
         'name': 'Revilla, Ladesma Archilyn Bangcaya',
         'role': 'Account Management Page',
         'learned': [
-            'I learned how to handle two different form actions on a single Flask route.',
-            'I learned how to validate user input like password length and matching passwords.',
-            'I learned how to use a global dictionary to store and update account information.',
+            '',
+            '',
+            '',
         ],
         'realization': (
-            'I realized that account management, even without a real database, requires '
-            'careful input validation. Every field needs to be checked before saving anything — '
-            'otherwise users can accidentally break their own account settings.'
+            ''
+            ''
+            ''
         ),
     },
 ]

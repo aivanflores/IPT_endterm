@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Dashboard — Group 9<!-- Member Task Table -->
 <div class="card">
-    <h2>📋 Group 9 — Member Task Assignment</h2>
+    <h2>Member Task Assignment</h2>
     <table class="table">
         <thead>
             <tr>
@@ -89,7 +89,7 @@
 <!-- Charts Section -->
 {% if charts %}
 <div class="card">
-    <h2>📊 Data Visualizations</h2>
+    <h2>Data Visualizations</h2>
     <p style="color:#666; margin-bottom:20px;">All charts are generated from the cleaned dataset using Matplotlib and Pandas.</p>
 
     <div class="chart-grid">
@@ -119,7 +119,7 @@
 <!-- Dataset Column Info -->
 {% if summary.columns %}
 <div class="card">
-    <h2>📄 Dataset Columns ({{ summary.total_columns }})</h2>
+    <h2>Dataset Columns ({{ summary.total_columns }})</h2>
     <div class="column-list">
         {% for col in summary.columns %}
         <span class="column-tag">{{ col }}</span>
@@ -130,7 +130,7 @@
 
 <!-- Member Task Table -->
 <div class="card">
-    <h2>📋 Group 9 — Member Task Assignment</h2>
+    <h2>Group 9 — Member Task Assignment</h2>
     <table class="table">
         <thead>
             <tr>
